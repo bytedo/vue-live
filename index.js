@@ -7,15 +7,17 @@
  */
 
 import { join } from 'path'
-import { createServer } from './lib/index.js'
+import { createServer, compile } from './lib/index.js'
 
 const WORK_SPACE = process.env.INIT_CWD
+
+const CONFIG_FILE = join(WORK_SPACE, 'vue.live.js')
 
 let args = process.argv.slice(2)
 
 switch (args[0]) {
   case 'dev':
-    import(join(WORK_SPACE, 'vue.live.js'))
+    import(CONFIG_FILE)
       .then(function (conf) {
         // console.log(conf)
         createServer(WORK_SPACE, conf.default)
@@ -26,5 +28,13 @@ switch (args[0]) {
     break
 
   case 'build':
+    import(CONFIG_FILE)
+      .then(function (conf) {
+        // console.log(conf)
+        compile(WORK_SPACE, conf.default)
+      })
+      .catch(err => {
+        console.log('Import Error:', err)
+      })
     break
 }
