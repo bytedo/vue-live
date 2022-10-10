@@ -1,7 +1,10 @@
 {
   "name": "@bytedo/vue-live",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "bin": {
+    "vue-live": "index.js"
+  },
   "dependencies": {
     "iofs": "^1.5.2",
     "@bytedo/sass": "^1.54.8"
