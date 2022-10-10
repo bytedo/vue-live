@@ -24,3 +24,19 @@
 - 开源小项目, 如 一些在线演示的小项目, 或者`wpa` 
 - `electron`应用, 能很好控制浏览器内核版, 并且electron的打包, 可以把代码打成asar, 对源码有一定的保护作用
 - 多页应用(MPA), 页面较多(好几百个), 并且各页面之间比较独立(没有太多实时通信)。
+
+
+### 使用
+
+1. 先全局安装 `@bytedo/vue-live-cli`, 再用它来创建项目
+
+```bash
+sudo npm i -g @bytedo/vue-live-cli
+```
+2. 创建项目
+
+```bash
+mkdir vue-demo
+cd vue-demo
+vue-live-cli init
+```
