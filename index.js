@@ -6,12 +6,13 @@
  * @date 2022/09/28 15:12:45
  */
 
+import fs from 'iofs'
 import { join } from 'path'
 
 import createServer from './lib/dev.js'
 import compile from './lib/prod.js'
 
-const WORK_SPACE = process.env.INIT_CWD
+const WORK_SPACE = process.env.PWD
 
 const CONFIG_FILE = join(WORK_SPACE, 'vue.live.js')
 const SOURCE_DIR = join(WORK_SPACE, 'src')
@@ -25,17 +26,22 @@ switch (args[0]) {
         createServer(SOURCE_DIR, conf.default)
       })
       .catch(err => {
-        console.log('Import Error:', err)
+        console.log(err)
       })
     break
 
   case 'build':
     import(CONFIG_FILE)
       .then(function (conf) {
-        compile(SOURCE_DIR, conf.default)
+        let dist = conf.buildDir || 'dist'
+        if (fs.isdir(dist)) {
+          fs.rm(dist, true)
+        }
+        fs.mkdir(dist)
+        compile(SOURCE_DIR, dist, conf.default)
       })
       .catch(err => {
-        console.log('Import Error:', err)
+        console.log(err)
       })
     break
 }
