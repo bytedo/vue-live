@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 /**
  * {}
@@ -12,7 +12,7 @@ import { join } from 'path'
 import createServer from './lib/dev.js'
 import compile from './lib/prod.js'
 
-const WORK_SPACE = process.env.PWD
+const WORK_SPACE = process.cwd()
 
 const CONFIG_FILE = join(WORK_SPACE, 'vue.live.js')
 const SOURCE_DIR = join(WORK_SPACE, 'src')
