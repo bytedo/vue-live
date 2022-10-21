@@ -34,15 +34,6 @@
 
 ### 使用
 
-1. 先全局安装 `@bytedo/vue-live-cli`, 再用它来创建项目
-
 ```bash
-sudo npm i -g @bytedo/vue-live-cli
-```
-2. 创建项目
-
-```bash
-mkdir vue-demo
-cd vue-demo
-vue-live-cli init
+npm create vue-live@latest
 ```
