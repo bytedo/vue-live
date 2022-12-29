@@ -1,12 +1,13 @@
 {
   "name": "@bytedo/vue-live",
   "type": "module",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "bin": {
     "vue-live": "index.js"
   },
   "dependencies": {
     "@bytedo/sass": "^1.54.8",
+    "chokidar": "^3.5.3",
     "esbuild": "^0.15.13",
     "iofs": "^1.5.2"
   }
