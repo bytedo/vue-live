@@ -1,7 +1,7 @@
 {
   "name": "@bytedo/vue-live",
   "type": "module",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "bin": {
     "vue-live": "index.js"
   },
